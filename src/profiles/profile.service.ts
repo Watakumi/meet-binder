@@ -3,6 +3,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Profile } from './profile.entity';
 import { CreateProfileDto } from './dto/create-profile.dto';
+import { UpdateProfileDto } from './dto/update-profile.dto';
 
 @Injectable()
 export class ProfileService {
@@ -22,9 +23,20 @@ export class ProfileService {
     return profile;
   }
 
-  create(CreateProfileDto: CreateProfileDto) {
-    const profile = this.profileRepository.create(CreateProfileDto);
+  create(createProfileDto: CreateProfileDto) {
+    const profile = this.profileRepository.create(createProfileDto);
 
+    return this.profileRepository.save(profile);
+  }
+
+  async update(id: number, updateProfileDto: UpdateProfileDto) {
+    const profile = await this.profileRepository.preload({
+      id: id,
+      ...updateProfileDto,
+    });
+    if (!profile) {
+      throw new NotFoundException(`Profile #${id} not found`);
+    }
     return this.profileRepository.save(profile);
   }
 }

@@ -31,8 +31,8 @@ export class ProfileController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body: UpdateProfileDto) {
-    return `This action updates #${id} profile with ${body.description}`;
+  update(@Param('id') id: number, @Body() body: UpdateProfileDto) {
+    return this.profileService.update(id, body);
   }
 
   @Delete(':id')
