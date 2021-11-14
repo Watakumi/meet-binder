@@ -7,7 +7,7 @@ import {
   Patch,
   Delete,
 } from '@nestjs/common';
-import { CreateProfileDto } from 'src/dto/create-profile.dto';
+import { CreateProfileDto } from 'src/profiles/dto/create-profile.dto';
 import { ProfileService } from './profile.service';
 
 @Controller('profiles')
