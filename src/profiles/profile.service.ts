@@ -14,7 +14,7 @@ export class ProfileService {
     return this.profileRepository.find();
   }
 
-  async findOne(id: string) {
+  async findOne(id: number) {
     const profile = await this.profileRepository.findOne(id);
     if (!profile) {
       throw new NotFoundException(`Profile #${id} not found`);
