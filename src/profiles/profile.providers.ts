@@ -1,5 +1,5 @@
 import { Connection } from 'typeorm';
-import { Profile } from './profile.entity';
+import { Profile } from './entities/profile.entity';
 
 export const profileProviders = [
   {
