@@ -10,6 +10,7 @@ import { join } from 'path';
   imports: [
     GraphQLModule.forRoot({
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      sortSchema: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
