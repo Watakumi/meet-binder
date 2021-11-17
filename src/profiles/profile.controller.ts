@@ -9,11 +9,11 @@ import {
 } from '@nestjs/common';
 import { CreateProfileDto } from './dto/create-profile.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
-import { ProfileService } from './profile.service';
+import { ProfilesService } from './profiles.service';
 
 @Controller('profiles')
 export class ProfileController {
-  constructor(private profileService: ProfileService) {}
+  constructor(private profileService: ProfilesService) {}
 
   @Get()
   findAll() {

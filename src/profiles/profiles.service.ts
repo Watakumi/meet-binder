@@ -6,7 +6,7 @@ import { CreateProfileDto } from './dto/create-profile.dto';
 import { UpdateProfileDto } from './dto/update-profile.dto';
 
 @Injectable()
-export class ProfileService {
+export class ProfilesService {
   constructor(
     @InjectRepository(Profile) private profileRepository: Repository<Profile>,
   ) {}
