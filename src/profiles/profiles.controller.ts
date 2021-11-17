@@ -12,7 +12,7 @@ import { UpdateProfileDto } from './dto/update-profile.dto';
 import { ProfilesService } from './profiles.service';
 
 @Controller('profiles')
-export class ProfileController {
+export class ProfilesController {
   constructor(private profileService: ProfilesService) {}
 
   @Get()
