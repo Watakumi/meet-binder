@@ -1,0 +1,19 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Profile {
+  id: ID!
+  githubUrl: String!
+  twitterId: String!
+  description: String!
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+"""Date custom scalar type"""
+scalar Date
+
+type Query {
+  profile(id: Int!): Profile!
+}
