@@ -20,10 +20,17 @@ type Query {
 
 type Mutation {
   createProfile(newProfile: CreateProfileDto!): Profile!
+  updateProfile(updateProfile: UpdateProfileDto!, id: ID!): Profile!
 }
 
 input CreateProfileDto {
   githubUrl: String!
   twitterId: String!
   description: String!
+}
+
+input UpdateProfileDto {
+  githubUrl: String
+  twitterId: String
+  description: String
 }

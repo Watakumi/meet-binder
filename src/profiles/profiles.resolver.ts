@@ -1,5 +1,7 @@
-import { Args, Int, Query, Resolver, Mutation } from '@nestjs/graphql';
+import { Args, Int, Query, Resolver, Mutation, ID } from '@nestjs/graphql';
+import { profile } from 'console';
 import { CreateProfileDto } from './dto/create-profile.dto';
+import { UpdateProfileDto } from './dto/update-profile.dto';
 import { Profile } from './entities/profile.entity';
 import { ProfilesService } from './profiles.service';
 
@@ -15,5 +17,13 @@ export class ProfilesResolver {
   @Mutation(() => Profile)
   async createProfile(@Args('newProfile') newProfile: CreateProfileDto) {
     return this.profilesService.create(newProfile);
+  }
+
+  @Mutation(() => Profile)
+  async updateProfile(
+    @Args({ name: 'id', type: () => ID }) id: number,
+    @Args('updateProfile') updateProfile: UpdateProfileDto,
+  ) {
+    return this.profilesService.update(id, updateProfile);
   }
 }
