@@ -1,5 +1,5 @@
 import { IsString } from 'class-validator';
-import { Field, InputType, Int } from '@nestjs/graphql';
+import { Field, InputType } from '@nestjs/graphql';
 
 @InputType()
 export class CreateProfileDto {
