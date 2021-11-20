@@ -17,3 +17,13 @@ scalar Date
 type Query {
   profile(id: Int!): Profile!
 }
+
+type Mutation {
+  createProfile(newProfile: CreateProfileDto!): Profile!
+}
+
+input CreateProfileDto {
+  githubUrl: String!
+  twitterId: String!
+  description: String!
+}
