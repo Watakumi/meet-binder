@@ -14,8 +14,16 @@ type Profile {
 """Date custom scalar type"""
 scalar Date
 
+type Item {
+  id: ID!
+  name: String!
+  createdAt: Date!
+  updatedAt: Date!
+}
+
 type Query {
   profile(id: Int!): Profile!
+  items: [Item!]!
 }
 
 type Mutation {

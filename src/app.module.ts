@@ -6,6 +6,7 @@ import { ProfilesModule } from './profiles/profiles.module';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
+import { ItemsModule } from './items/items.module';
 import appConfig from './config/app.config';
 import * as Joi from '@hapi/joi';
 
@@ -34,6 +35,7 @@ import * as Joi from '@hapi/joi';
       }),
     }),
     ProfilesModule,
+    ItemsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
