@@ -3,7 +3,7 @@ import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Profile } from './entities/profile.entity';
 import { CreateProfileInput } from './dto/create-profile.input';
-import { UpdateProfileDto } from './dto/update-profile.dto';
+import { UpdateProfileInput } from './dto/update-profile.input';
 
 @Injectable()
 export class ProfilesService {
@@ -29,7 +29,7 @@ export class ProfilesService {
     return this.profileRepository.save(profile);
   }
 
-  async update(id: number, updateProfileDto: UpdateProfileDto) {
+  async update(id: number, updateProfileDto: UpdateProfileInput) {
     const profile = await this.profileRepository.preload({
       id: id,
       ...updateProfileDto,

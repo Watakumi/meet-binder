@@ -20,7 +20,7 @@ type Query {
 
 type Mutation {
   createProfile(newProfile: CreateProfileInput!): Profile!
-  updateProfile(updateProfile: UpdateProfileDto!, id: ID!): Profile!
+  updateProfile(updateProfile: UpdateProfileInput!, id: ID!): Profile!
 }
 
 input CreateProfileInput {
@@ -29,7 +29,7 @@ input CreateProfileInput {
   description: String!
 }
 
-input UpdateProfileDto {
+input UpdateProfileInput {
   githubUrl: String
   twitterId: String
   description: String

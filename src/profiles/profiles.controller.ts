@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { CreateProfileInput } from './dto/create-profile.input';
-import { UpdateProfileDto } from './dto/update-profile.dto';
+import { UpdateProfileInput } from './dto/update-profile.input';
 import { ProfilesService } from './profiles.service';
 
 @Controller('profiles')
@@ -31,7 +31,7 @@ export class ProfilesController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: number, @Body() body: UpdateProfileDto) {
+  update(@Param('id') id: number, @Body() body: UpdateProfileInput) {
     return this.profileService.update(id, body);
   }
 
