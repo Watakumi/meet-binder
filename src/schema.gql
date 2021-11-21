@@ -24,11 +24,13 @@ type Item {
 type Query {
   profile(id: Int!): Profile!
   items: [Item!]!
+  item(id: ID!): Item!
 }
 
 type Mutation {
   createProfile(newProfile: CreateProfileInput!): Profile!
   updateProfile(updateProfile: UpdateProfileInput!, id: ID!): Profile!
+  createItem(name: String!): Item!
 }
 
 input CreateProfileInput {
