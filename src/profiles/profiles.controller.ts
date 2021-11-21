@@ -7,7 +7,7 @@ import {
   Patch,
   Delete,
 } from '@nestjs/common';
-import { CreateProfileDto } from './dto/create-profile.dto';
+import { CreateProfileInput } from './dto/create-profile.input';
 import { UpdateProfileDto } from './dto/update-profile.dto';
 import { ProfilesService } from './profiles.service';
 
@@ -26,7 +26,7 @@ export class ProfilesController {
   }
 
   @Post()
-  create(@Body() body: CreateProfileDto) {
+  create(@Body() body: CreateProfileInput) {
     return this.profileService.create(body);
   }
 

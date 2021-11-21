@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Profile } from './entities/profile.entity';
-import { CreateProfileDto } from './dto/create-profile.dto';
+import { CreateProfileInput } from './dto/create-profile.input';
 import { UpdateProfileDto } from './dto/update-profile.dto';
 
 @Injectable()
@@ -23,7 +23,7 @@ export class ProfilesService {
     return profile;
   }
 
-  create(createProfileDto: CreateProfileDto) {
+  create(createProfileDto: CreateProfileInput) {
     const profile = this.profileRepository.create(createProfileDto);
 
     return this.profileRepository.save(profile);
