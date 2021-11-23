@@ -1,5 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { profile } from 'console';
+import { Item } from 'src/items/entities/item.entity';
 import { Profile } from 'src/profiles/entities/profile.entity';
 import {
   Column,
@@ -31,4 +31,7 @@ export class ProfileItem {
 
   @ManyToOne(() => Profile, (profile) => profile.profileItems)
   profile: Profile;
+
+  @ManyToOne(() => Item, (item) => item.profileItems)
+  item: Item;
 }

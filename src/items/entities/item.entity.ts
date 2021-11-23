@@ -1,8 +1,10 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { ProfileItem } from 'src/profile-items/entities/profile-item.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -25,4 +27,7 @@ export class Item {
   @UpdateDateColumn()
   @Field()
   updatedAt: Date;
+
+  @OneToMany(() => ProfileItem, (profileItem) => profileItem.item)
+  profileItems: ProfileItem[];
 }
