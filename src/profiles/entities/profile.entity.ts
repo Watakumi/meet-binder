@@ -4,8 +4,10 @@ import {
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { ProfileItem } from 'src/profile-items/entities/profile-item.entity';
 
 @Entity()
 @ObjectType()
@@ -13,14 +15,6 @@ export class Profile {
   @PrimaryGeneratedColumn()
   @Field(() => ID)
   id: number;
-
-  @Field(() => String)
-  @Column()
-  githubUrl: string;
-
-  @Field(() => String)
-  @Column({ length: 100 })
-  twitterId: string;
 
   @Field(() => String)
   @Column('text')
@@ -33,4 +27,7 @@ export class Profile {
   @UpdateDateColumn()
   @Field()
   updatedAt: Date;
+
+  @OneToMany(() => ProfileItem, (profileItem) => profileItem.profile)
+  profileItems: ProfileItem[];
 }
