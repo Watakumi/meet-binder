@@ -5,13 +5,5 @@ import { Field, InputType } from '@nestjs/graphql';
 export class CreateProfileInput {
   @Field()
   @IsString()
-  githubUrl: string;
-
-  @Field()
-  @IsString()
-  twitterId: string;
-
-  @Field()
-  @IsString()
   description: string;
 }
