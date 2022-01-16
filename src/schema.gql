@@ -2,11 +2,9 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-type Profile {
+type Item {
   id: ID!
-  githubUrl: String!
-  twitterId: String!
-  description: String!
+  name: String!
   createdAt: Date!
   updatedAt: Date!
 }
@@ -14,9 +12,16 @@ type Profile {
 """Date custom scalar type"""
 scalar Date
 
-type Item {
+type ProfileItem {
   id: ID!
-  name: String!
+  content: String!
+  createdAt: Date!
+  updatedAt: Date!
+}
+
+type Profile {
+  id: ID!
+  description: String!
   createdAt: Date!
   updatedAt: Date!
 }
@@ -25,6 +30,7 @@ type Query {
   profile(id: Int!): Profile!
   items: [Item!]!
   item(id: ID!): Item!
+  profileItems(profileId: Int!): ProfileItem!
 }
 
 type Mutation {
@@ -34,13 +40,9 @@ type Mutation {
 }
 
 input CreateProfileInput {
-  githubUrl: String!
-  twitterId: String!
   description: String!
 }
 
 input UpdateProfileInput {
-  githubUrl: String
-  twitterId: String
   description: String
 }
