@@ -1,5 +1,5 @@
 import { IsInt, IsString } from 'class-validator';
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, InputType, Int } from '@nestjs/graphql';
 
 @InputType()
 export class CreateProfileItemInput {
@@ -7,7 +7,7 @@ export class CreateProfileItemInput {
   @IsString()
   content: string;
 
-  @Field()
+  @Field(() => Int)
   @IsInt()
   itemId: number;
 }
