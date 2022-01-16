@@ -2,7 +2,7 @@ import { IsInt, IsString } from 'class-validator';
 import { Field, InputType } from '@nestjs/graphql';
 
 @InputType()
-export class CreateProfileItemsInput {
+export class CreateProfileItemInput {
   @Field()
   @IsString()
   content: string;
