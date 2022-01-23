@@ -37,6 +37,7 @@ type Mutation {
   createProfile(newProfile: CreateProfileInput!): Profile!
   updateProfile(updateProfile: UpdateProfileInput!, id: ID!): Profile!
   createItem(name: String!): Item!
+  createProfileItem(newProfileItem: CreateProfileItemInput!, profileId: Int!): ProfileItem!
 }
 
 input CreateProfileInput {
@@ -45,4 +46,9 @@ input CreateProfileInput {
 
 input UpdateProfileInput {
   description: String
+}
+
+input CreateProfileItemInput {
+  content: String!
+  itemId: Int!
 }

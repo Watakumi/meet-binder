@@ -1,5 +1,6 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Item } from 'src/items/entities/item.entity';
 import { Profile } from 'src/profiles/entities/profile.entity';
 
 import { Repository } from 'typeorm';
@@ -13,21 +14,40 @@ export class ProfileItemsService {
     private profileItemRepository: Repository<ProfileItem>,
     @InjectRepository(Profile)
     private profileRepository: Repository<Profile>,
+    @InjectRepository(Item)
+    private itemRepository: Repository<Item>,
   ) {}
 
   async findAll(profileId: number) {
     const profile = await this.profileRepository.findOne(profileId, {
-      relations: ['profile-items'],
+      relations: ['profileItems'],
     });
+    if (!profile) {
+      throw new NotFoundException(`Profile #${profileId} is Not found.`);
+    }
 
     return profile.profileItems;
   }
 
   async create(
+    profileId: number,
     createProfileItemInput: CreateProfileItemInput,
   ): Promise<ProfileItem> {
+    const profile = await this.profileRepository.findOne(profileId);
+
+    if (!profile) {
+      throw new NotFoundException(`Profile #${profileId} is Not found.`);
+    }
+    const item = await this.itemRepository.findOne(
+      createProfileItemInput.itemId,
+    );
+    if (!item) {
+      throw new NotFoundException(`Item #${profileId} is Not found.`);
+    }
     const profileItem = this.profileItemRepository.create({
       content: createProfileItemInput.content,
+      profile: profile,
+      item: item,
     });
 
     return this.profileItemRepository.save(profileItem);
