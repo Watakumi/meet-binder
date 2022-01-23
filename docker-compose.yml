@@ -11,5 +11,17 @@ services:
       POSTGRES_INITDB_ARGS: '--encoding=UTF-8'
     restart: always
 
+  postgres-gui:
+    image: dpage/pgadmin4
+    command: -s --bind=0.0.0.0 --listen=80 --url postgresql://db/postgres?user=root&password=root
+    links:
+      - db:db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - 80:80
+    restart: always
+
 volumes:
   meet-binder-db:
