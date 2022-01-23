@@ -30,7 +30,7 @@ type Query {
   profile(id: Int!): Profile!
   items: [Item!]!
   item(id: ID!): Item!
-  profileItems(profileId: Int!): ProfileItem!
+  profileItems(profileId: Int!): [ProfileItem!]!
 }
 
 type Mutation {

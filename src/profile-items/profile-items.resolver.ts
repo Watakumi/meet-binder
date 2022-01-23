@@ -5,7 +5,7 @@ import { ProfileItemsService } from './profile-items.service';
 @Resolver()
 export class ProfileItemsResolver {
   constructor(private readonly profileItemsService: ProfileItemsService) {}
-  @Query(() => ProfileItem)
+  @Query(() => [ProfileItem])
   async profileItems(
     @Args('profileId', { type: () => Int }) profileId: number,
   ) {
