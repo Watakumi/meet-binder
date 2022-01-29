@@ -14,7 +14,6 @@ describe('ItemsService', () => {
         { provide: Connection, useValue: {} },
         { provide: getRepositoryToken(Item), useValue: {} },
         { provide: getRepositoryToken(ProfileItem), useValue: {} },
-        { provide: getRepositoryToken(Item), useValue: {} },
       ],
     }).compile();
 
