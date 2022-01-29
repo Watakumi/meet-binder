@@ -1,5 +1,5 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
-import { ProfileItem } from 'src/profile-items/entities/profile-item.entity';
+import { ProfileItem } from '../../profile-items/entities/profile-item.entity';
 import {
   Column,
   CreateDateColumn,

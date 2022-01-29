@@ -4,7 +4,7 @@ import { ProfilesService } from './profiles.service';
 import { Profile } from './entities/profile.entity';
 import { ProfilesController } from './profiles.controller';
 import { ProfilesResolver } from './profiles.resolver';
-import { DateScalar } from 'src/common/scalars/date.scalar';
+import { DateScalar } from '../common/scalars/date.scalar';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Profile])],
