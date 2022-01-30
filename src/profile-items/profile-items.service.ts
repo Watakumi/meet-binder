@@ -2,7 +2,6 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Item } from '../items/entities/item.entity';
 import { Profile } from '../profiles/entities/profile.entity';
-
 import { Repository } from 'typeorm';
 import { CreateProfileItemInput } from './dto/create-profile-item.input';
 import { ProfileItem } from './entities/profile-item.entity';
